@@ -19,42 +19,51 @@ function Suggestion(props) {
 }
 const style = StyleSheet.create({
     container: {
-        flexDirection:"row",
+        flexDirection: "row",
     },
     left: {
 
     },
     rigth: {
-        paddingLeft:10,
-        justifyContent:"space-between",
+        paddingLeft: 10,
+        justifyContent: "space-between",
     },
     title: {
-        fontSize:18,
-        color:"#44546b",
+        fontSize: 18,
+        color: "#44546b",
     },
     cover: {
         width: 150,
-        height: 100,
-        resizeMode:"contain",
+        height: 70,
+        resizeMode: "contain",
     },
     year: {
-        backgroundColor:"#70b124",
-        paddingVertical:4,
-        paddingHorizontal:6,
-        color:"white",
-        fontSize:11,
-        borderRadius:5,
-        overflow:"hidden",
+        backgroundColor: "#70b124",
+        paddingVertical: 4,
+        paddingHorizontal: 6,
+        color: "white",
+        fontSize: 11,
+        borderRadius: 5,
+        overflow: "hidden",
+        alignSelf: "flex-start"
     },
     ratting: {
-        
+        color: "#6b6b6b",
+        fontSize: 14,
+        fontWeight: "bold"
 
     },
     genere: {
-
+        position: "absolute",
+        left: 0,
+        top: 0,
+        backgroundColor: "black"
     },
-    genereText:{
-
+    genereText: {
+        color: "white",
+        fontSize:11,
+        paddingVertical:5,
+        paddingHorizontal:7
     }
 });
 export default Suggestion;

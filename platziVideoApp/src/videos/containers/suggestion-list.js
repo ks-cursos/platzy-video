@@ -6,7 +6,7 @@ import Layout from "../components/suggestion-list-layout";
 import Suggest from "../components/suggestion";
 class SuggestionList extends Component {
     renderEmpty = () => <Empty text="No hay ninguna sugerencias. :(" />;
-    itemSeparator = () => <VerticalSeparator  color="red"/>;
+    itemSeparator = () => <VerticalSeparator  />;
     renderItem = ({item}) => {return (<Suggest  {...item}/>)}
     render() {
         const list = [

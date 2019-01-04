@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 function VerticalSeparator(props) {
     return (
         <View style={[style.separator, { borderColor: (props.color) ? props.color : "#eaeaea" }]}>
-            <Text >Esto e sun separador.</Text>
+            <Text></Text>
         </View>
     );
 }
