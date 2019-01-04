@@ -4,15 +4,17 @@ function Suggestion(props) {
     return (
         <View style={style.container}>
             <View style={style.left}>
-                <Image style={style.cover} source={require("../../../assets/logo.png")}></Image>
+                <Image style={style.cover} source={{
+                    uri:props.medium_cover_image
+                }}></Image>
                 <View style={style.genere}>
-                    <Text style={style.genereText}>Acciòn</Text>
+                    <Text style={style.genereText}>{props.genres[0]}</Text>
                 </View>
             </View>
             <View style={style.rigth}>
-                <Text style={style.title}>Adevebgarge</Text>
-                <Text style={style.year}>2015</Text>
-                <Text style={style.ratting}>5 estrellas</Text>
+                <Text style={style.title}>{props.title}</Text>
+                <Text style={style.year}>{props.year}</Text>
+                <Text style={style.ratting}>{props.rating}</Text>
             </View>
         </View>
     )
@@ -33,8 +35,8 @@ const style = StyleSheet.create({
         color: "#44546b",
     },
     cover: {
-        width: 150,
-        height: 70,
+        width: 80,
+        height: 130,
         resizeMode: "contain",
     },
     year: {
