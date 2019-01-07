@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import Video from "react-native-video";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View ,ActivityIndicator} from "react-native";
 import PLayerLayout from "../components/player-layout"
 class PLayer extends Component {
     render() {
         return (
             <PLayerLayout video={
-                <Video source={{ uri: "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4" }}
+                <Video playWhenInactive={true} source={{ uri: "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4" }}
                     style={style.video} resizeMode="contain" />
-            }/>
+            }
+            loader={
+                <ActivityIndicator color="white"/>
+            }
+            />
         )
     }
 }
