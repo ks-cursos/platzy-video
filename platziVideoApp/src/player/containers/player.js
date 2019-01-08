@@ -7,7 +7,10 @@ import PlayPause from "../components/play-pause"
 class PLayer extends Component {
     state = {
         loading: true,
-        paused: false
+        paused: false,
+        progress:0,
+        duration:0,
+        current:0
     }
     onBuffer = ({ isBuffering }) => {
         this.setState({
