@@ -9,6 +9,7 @@ function VideoLayout(props) {
             <View style={style.loader}>
                 {props.loading && props.loader}
             </View>
+            {!props.loading && props.controls}
         </View>
     )
 }
