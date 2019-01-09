@@ -1,8 +1,8 @@
 import React from "react";
 import { View, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Text } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import {Bar} from "react-native-progress";
 
-function PlayPause(props) {
+function Progress(props) {
     return (
 
         <TouchableWithoutFeedback onPress={props.onPress} style={style.container} underlayColor="red" hitSlop={{
@@ -11,11 +11,16 @@ function PlayPause(props) {
             bottom: 5,
             right: 50
         }}>
-            <Icon name={!props.paused ? "pause" : "play"} size={22} color="#FFF" />
+            <Bar style={style.bar} progress={props.progress}  width={320} height={30}/>
         </TouchableWithoutFeedback>
     )
 }
 const style = StyleSheet.create({
+    bar: {
+        color: 'white',
+        fontSize: 10,
+        fontWeight: 'bold'
+    },
     container: {
         justifyContent: 'center',
         paddingHorizontal: 10,
@@ -28,4 +33,4 @@ const style = StyleSheet.create({
         backgroundColor: 'gray',
     }
 })
-export default PlayPause;
+export default Progress;

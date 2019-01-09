@@ -2,7 +2,7 @@ import React from "react";
 import { View, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-function PlayPause(props) {
+function FullScreen(props) {
     return (
 
         <TouchableWithoutFeedback onPress={props.onPress} style={style.container} underlayColor="red" hitSlop={{
@@ -11,11 +11,16 @@ function PlayPause(props) {
             bottom: 5,
             right: 50
         }}>
-            <Icon name={!props.paused ? "pause" : "play"} size={22} color="#FFF" />
+            <Icon name={!props.fullScreen ? "expand" : "minusm"} size={22} color="#FFF" />
         </TouchableWithoutFeedback>
     )
 }
 const style = StyleSheet.create({
+    bar: {
+        color: 'white',
+        fontSize: 10,
+        fontWeight: 'bold'
+    },
     container: {
         justifyContent: 'center',
         paddingHorizontal: 10,
@@ -28,4 +33,4 @@ const style = StyleSheet.create({
         backgroundColor: 'gray',
     }
 })
-export default PlayPause;
+export default FullScreen;

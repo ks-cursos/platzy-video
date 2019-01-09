@@ -9,7 +9,7 @@ function VideoLayout(props) {
             <View style={style.loader}>
                 {props.loading && props.loader}
             </View>
-            {!props.loading && props.controls}
+            {props.controls}
         </View>
     )
 }
@@ -18,7 +18,6 @@ const style = StyleSheet.create({
         paddingTop: "56.25%"
     },
     video: {
-
         position: "absolute",
         left: 0,
         top: 0,
