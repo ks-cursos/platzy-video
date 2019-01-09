@@ -79,6 +79,7 @@ class PLayer extends Component {
                     onVideoSeek={this._onVideoSeek}
                     fullscreen={this.state.fullscreen}
                     
+                    
 
                 />
             }

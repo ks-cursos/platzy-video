@@ -11,7 +11,7 @@ function Progress(props) {
             bottom: 5,
             right: 50
         }}>
-            <Bar style={style.bar} progress={props.progress}  width={320} height={30}/>
+            <Bar style={style.bar} progress={props.progress}  width={300} height={30}/>
         </TouchableWithoutFeedback>
     )
 }
