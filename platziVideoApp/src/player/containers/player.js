@@ -8,6 +8,7 @@ import FullScreen from "../components/full-screen";
 import Progress from "../components/progress";
 const { width } = Dimensions.get("window");
 const height = width * .5625;
+const widthProgress = width * .71;
 
 function secondsToTime(time) {
     return ~~(time / 60) + ":" + (time % 60 < 10 ? "0" : "") + time % 60;
@@ -19,7 +20,7 @@ class PLayer extends Component {
         progress: 0,
         duration: 0,
         current: 0,
-        fullscreen:false
+        fullscreen: false
     }
     onBuffer = ({ isBuffering }) => {
         this.setState({
@@ -44,26 +45,25 @@ class PLayer extends Component {
     }
     _onProgress = (meta) => {
         this.setState({
-            loading: false,
             progress: meta.currentTime / this.state.duration
         })
     }
     _onEnd = () => {
         this.setState({
-            paused: true
+            paused: true,
+            progress:0
         })
     }
     _onPressProgress = (e) => {
         const position = e.nativeEvent.locationX;
         const progress = (position / 250) * this.state.duration;
-        const isPlaying = !this.state.paused;
         this.player.seek(progress);
+    }
+    _onSeek = () => {
         this.setState({
             loading: true
         })
     }
-
-
     render() {
 
         return (
@@ -77,10 +77,9 @@ class PLayer extends Component {
                     onEnd={this._onEnd}
                     ref={ref => this.player = ref}
                     onVideoSeek={this._onVideoSeek}
-                    fullscreen={this.state.fullscreen}
+                    fullscreen={this.state.fullscreen} 
+                    onSeek={this._onSeek}
                     
-                    
-
                 />
             }
                 loader={
@@ -89,9 +88,9 @@ class PLayer extends Component {
                 controls={
                     <ControlLayout>
                         <PlayPause onPress={this.playPause} paused={this.state.paused} ></PlayPause>
-                        <Progress progress={this.state.progress} onPress={this._onPressProgress} />
+                        <Progress width={widthProgress} progress={this.state.progress} onPress={this._onPressProgress} />
                         <Text>{secondsToTime(Math.floor(this.state.progress * this.state.duration))}</Text>
-                        <FullScreen onPress={this.fullScreen}  fullScreen={this.state.fullscreen}/>
+                        <FullScreen onPress={this.fullScreen} fullScreen={this.state.fullscreen} />
                     </ControlLayout>
                 }
             />

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 function VideoLayout(props) {
     return (
-        <View style={style.container}>
+        <View  style={style.container} >
             <View style={style.video}>
                 {props.video}
             </View>

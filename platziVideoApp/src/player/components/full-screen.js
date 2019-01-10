@@ -11,7 +11,7 @@ function FullScreen(props) {
             bottom: 5,
             right: 50
         }}>
-            <Icon name={!props.fullScreen ? "expand" : "rss"} size={22} color="#FFF" />
+            <Icon name={!props.fullScreen ? "expand" : "compress"} size={22} color="#FFF" />
         </TouchableWithoutFeedback>
     )
 }

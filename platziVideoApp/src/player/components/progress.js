@@ -1,8 +1,11 @@
 import React from "react";
-import { View, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Text } from "react-native";
-import {Bar} from "react-native-progress";
+import { View, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Text, Dimensions,ProgressBarAndroid } from "react-native";
+import { Bar } from "react-native-progress";
+
+
 
 function Progress(props) {
+
     return (
 
         <TouchableWithoutFeedback onPress={props.onPress} style={style.container} underlayColor="red" hitSlop={{
@@ -11,7 +14,7 @@ function Progress(props) {
             bottom: 5,
             right: 50
         }}>
-            <Bar style={style.bar} progress={props.progress}  width={300} height={30}/>
+            <Bar color="#eee" style={style.bar} progress={props.progress} width={props.width} height={32}  />
         </TouchableWithoutFeedback>
     )
 }
