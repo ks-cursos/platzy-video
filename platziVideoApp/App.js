@@ -5,6 +5,7 @@ import Header from "./src/sections/components/header";
 import SuggestionList from "./src/videos/containers/suggestion-list";
 import CategoryList from "./src/videos/containers/category-list";
 import Player from "./src/player/containers/player";
+import Splash from "./src/sections/components/splash";
 import API from "./src/utils/api"
 import { Provider } from "react-redux";
 import { store, persistor } from "./store";
@@ -36,7 +37,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Provider store={store}>
-        <PersistGate loading={<Text>Crgando</Text>} persistor={persistor}>
+        <PersistGate loading={<Splash/>} persistor={persistor}>
           <Home>
             <Header />
             <Player />
