@@ -1,22 +1,24 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 function Suggestion(props) {
     return (
-        <View style={style.container}>
-            <View style={style.left}>
-                <Image style={style.cover} source={{
-                    uri:props.medium_cover_image
-                }}></Image>
-                <View style={style.genere}>
-                    <Text style={style.genereText}>{props.genres[0]}</Text>
+        <TouchableOpacity onPress={props.onPress}>
+            <View style={style.container}>
+                <View style={style.left}>
+                    <Image style={style.cover} source={{
+                        uri: props.medium_cover_image
+                    }}></Image>
+                    <View style={style.genere}>
+                        <Text style={style.genereText}>{props.genres[0]}</Text>
+                    </View>
+                </View>
+                <View style={style.rigth}>
+                    <Text style={style.title}>{props.title}</Text>
+                    <Text style={style.year}>{props.year}</Text>
+                    <Text style={style.ratting}>{props.rating}</Text>
                 </View>
             </View>
-            <View style={style.rigth}>
-                <Text style={style.title}>{props.title}</Text>
-                <Text style={style.year}>{props.year}</Text>
-                <Text style={style.ratting}>{props.rating}</Text>
-            </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 const style = StyleSheet.create({
@@ -63,9 +65,9 @@ const style = StyleSheet.create({
     },
     genereText: {
         color: "white",
-        fontSize:11,
-        paddingVertical:5,
-        paddingHorizontal:7
+        fontSize: 11,
+        paddingVertical: 5,
+        paddingHorizontal: 7
     }
 });
 export default Suggestion;

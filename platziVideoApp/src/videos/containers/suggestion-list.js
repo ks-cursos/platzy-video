@@ -11,11 +11,18 @@ function mapStateToProps(state) {
     };
 }
 class SuggestionList extends Component {
+    viewMovie=(item)=>{
+        this.props.dispatch({
+            type:"SET_SELECTED_MOVIE",
+            payload:{
+                movie:item
+            }
+        })
+    }
     renderEmpty = () => <Empty text="No hay ninguna sugerencias. :(" />;
     itemSeparator = () => <VerticalSeparator />;
-    renderItem = ({ item }) => { return (<Suggest  {...item} />) }
+    renderItem = ({ item }) => { return (<Suggest onPress={()=>{this.viewMovie(item)}} {...item} />) }
     keyExtractor = ({ item }) => {
-        console.log(item)
         return (item ? item.id.toString() : "-1")
     };
     _keyExtractor = (item, index) => item ? item.id.toString() : index;
