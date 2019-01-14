@@ -106,7 +106,6 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
-        multiDexEnabled true
     }
     splits {
         abi {
@@ -149,7 +148,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:multidex:1.0.0'
     compile project(':react-native-vector-icons')
     compile project(':react-native-video')
     implementation fileTree(dir: "libs", include: ["*.jar"])
