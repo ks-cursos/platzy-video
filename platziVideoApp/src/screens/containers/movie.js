@@ -1,18 +1,20 @@
 import React, { Component } from "react";
-import { Text } from "react-native";
+import { Animated } from "react-native";
 import Player from "../../player/containers/player";
 import Header from "../../sections/components/header";
 import MovieLayout from "../component/movie-layout"
 import Close from "../../sections/components/close";
 import Detail from "../../videos/components/detail";
 import { connect } from "react-redux";
-function mapStateToProps(state){
-    debugger;
-    return{
-        movie:state.selectedMovie
+function mapStateToProps(state) {
+    return {
+        movie: state.selectedMovie
     }
 }
 class Movie extends Component {
+    state = {
+        opacity: new Animated.Value(0),
+    }
     closeVideo = () => {
         this.props.dispatch(
             {
@@ -23,15 +25,28 @@ class Movie extends Component {
             }
         )
     }
+    componentDidMount() {
+        Animated.timing(
+            this.state.opacity, {
+                toValue: 1,
+                duration: 1000
+            }
+        ).start();
+    }
     render() {
         return (
-            <MovieLayout>
-                <Header >
-                    <Close onPress={this.closeVideo} />
-                </Header>
-                <Player />
-                <Detail {...this.props.movie}/>
-            </MovieLayout>
+            <Animated.View style={{
+                flex: 1,
+                opacity: this.state.opacity
+            }} >
+                <MovieLayout>
+                    <Header >
+                        <Close onPress={this.closeVideo} />
+                    </Header>
+                    <Player />
+                    <Detail {...this.props.movie} />
+                </MovieLayout>
+            </Animated.View>
         )
     }
 }

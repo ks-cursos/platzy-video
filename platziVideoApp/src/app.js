@@ -9,7 +9,6 @@ import Search from "./sections/container/search"
 import API from "./utils/api";
 import { connect } from "react-redux";
 function mapStateToProps(state) {
-    debugger;
     return {
         selectedMovie: state.selectedMovie
     };
