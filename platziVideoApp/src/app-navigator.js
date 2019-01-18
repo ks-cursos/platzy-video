@@ -3,10 +3,6 @@ import Splash from "./sections/components/splash"
 const Main = createStackNavigator(
     {
         Splash
-    },
-    {
-        initialRouteName: "Splash",
-        mode: "modal"
     }
 );
 const AppContainer = createAppContainer(Main);
