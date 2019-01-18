@@ -4,6 +4,7 @@ import { store, persistor } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
 import Splash from "./src/sections/components/splash";
 import AppLayout from "./src/app";
+import AppContainer from "./src/app-navigator";
 type Props = {};
 export default class App extends Component<Props> {
   state = {
@@ -12,7 +13,7 @@ export default class App extends Component<Props> {
     return (
       <Provider store={store}>
         <PersistGate loading={<Splash />} persistor={persistor}>
-          <AppLayout />
+          <AppContainer />
         </PersistGate>
       </Provider>
     );
