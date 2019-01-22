@@ -9,6 +9,7 @@ export default class App extends Component<Props> {
   state = {
   }
   render() {
+    console.disableYellowBox=true;
     return (
       <Provider store={store}>
         <PersistGate loading={<Splash />} persistor={persistor}>
