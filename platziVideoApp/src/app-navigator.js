@@ -1,8 +1,10 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import Splash from "./sections/components/splash"
+import Home from "./screens/containers/home";
+import Movie from "./screens/containers/movie";
 const Main = createStackNavigator(
     {
-        Splash
+        Home,
+        Movie
     }
 );
 const AppContainer = createAppContainer(Main);

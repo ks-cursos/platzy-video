@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, SafeAreaView } from "react-native"
 function Header(props) {
     return (
         <View>
-            <SafeAreaView>
+            <SafeAreaView style={style.statusBar}>
                 <View style={style.container}>
                     <Image source={require('../../../assets/logo.png')} style={style.logo} />
                     <View style={style.right}>
@@ -16,6 +16,7 @@ function Header(props) {
     )
 }
 const style = StyleSheet.create({
+    statusBar: { backgroundColor: "white" },
     logo: {
         width: 40,
         height: 40,
@@ -29,8 +30,8 @@ const style = StyleSheet.create({
         flexDirection: 'row'
     },
     right: {
-        flex: 1, 
-        flexDirection: 'row', 
+        flex: 1,
+        flexDirection: 'row',
         justifyContent: 'flex-end'
     }
 });

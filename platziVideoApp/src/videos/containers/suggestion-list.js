@@ -5,9 +5,10 @@ import VerticalSeparator from "../../sections/components/vertical-separator"
 import Layout from "../components/suggestion-list-layout";
 import Suggest from "../components/suggestion";
 import { connect } from "react-redux";
+import {withNavigation} from "react-navigation"
 function mapStateToProps(state) {
     return {
-        list:state.suggestionList
+        list:state.videos.suggestionList
     };
 }
 class SuggestionList extends Component {
@@ -18,6 +19,7 @@ class SuggestionList extends Component {
                 movie:item
             }
         })
+        this.props.navigation.navigate('Movie')
     }
     renderEmpty = () => <Empty text="No hay ninguna sugerencias. :(" />;
     itemSeparator = () => <VerticalSeparator />;
@@ -34,4 +36,4 @@ class SuggestionList extends Component {
         )
     }
 }
-export default connect(mapStateToProps)(SuggestionList);
+export default withNavigation(connect(mapStateToProps)(SuggestionList));

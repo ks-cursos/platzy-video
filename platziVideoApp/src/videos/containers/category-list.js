@@ -7,7 +7,7 @@ import Category from "../components/category";
 import { connect } from "react-redux";
 function mapStateToProps(state) {
     return {
-        list:state.categorieList
+        list:state.videos.categorieList
     };
 }
 class CategoryList extends Component {
@@ -15,7 +15,6 @@ class CategoryList extends Component {
     itemSeparator = () => <HorizontalSeparator />;
     renderItem = ({ item }) => { return (<Category  {...item} />) }
     keyExtractor = ({ item }) => {
-        console.log(item)
         return (item ? item.id.toString() : "-1")
     };
     _keyExtractor = (item, index) => item ? item.id.toString() : index;
