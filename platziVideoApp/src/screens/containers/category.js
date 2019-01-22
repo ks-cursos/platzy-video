@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { withNavigation } from "react-navigation"
 function mapStateToProps(state) {
     return {
-        list: state.videos.categoryList
+        list: state.videos.categorieList
     };
 }
 class Category extends Component {
