@@ -5,15 +5,26 @@ import HorizontalSeparator from "../../sections/components/horizontal-separator"
 import Layout from "../components/category-list-layout";
 import Category from "../components/category";
 import { connect } from "react-redux";
+import { NavigationActions } from "react-navigation";
 function mapStateToProps(state) {
     return {
-        list:state.videos.categorieList
+        list: state.videos.categorieList
     };
 }
 class CategoryList extends Component {
     renderEmpty = () => <Empty text="No hay ninguna sugerencias. :(" />;
     itemSeparator = () => <HorizontalSeparator />;
-    renderItem = ({ item }) => { return (<Category  {...item} />) }
+    viewCategory = (item) => {
+        this.props.dispatch(
+            NavigationActions.navigate({
+                routeName:"Category",
+                params:{
+                    genre:item.genres[0]
+                }
+            })
+        );
+    }
+    renderItem = ({ item }) => { return (<Category onPress={() => { this.viewCategory(item) }}  {...item} />) }
     keyExtractor = ({ item }) => {
         return (item ? item.id.toString() : "-1")
     };
