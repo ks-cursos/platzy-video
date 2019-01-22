@@ -53,7 +53,7 @@ const Tab = createBottomTabNavigator(
             screen: AboutNav,
             navigationOptions: {
                 title: "Acerca De",
-                tabBarIcon:<IconApp name="key" size={34} color="#990000" />
+                tabBarIcon:<IconApp name="check" size={34} color="#990000" />
             }
         },
         Profile: {
