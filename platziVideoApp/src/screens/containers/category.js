@@ -5,6 +5,8 @@ import VerticalSeparator from "../../sections/components/vertical-separator"
 import Layout from "../../videos/components/suggestion-list-layout";
 import Suggest from "../../videos/components/suggestion";
 import { connect } from "react-redux";
+import Header from "../../sections/components/header";
+import Close from "../../sections/components/close";
 import { withNavigation } from "react-navigation"
 function mapStateToProps(state) {
     return {
@@ -12,6 +14,13 @@ function mapStateToProps(state) {
     };
 }
 class Category extends Component {
+    static navigationOptions = (navigation) => {
+        return {
+            header: <Header>
+                <Close onPress={() => {navigation.navigation.goBack() }} />
+            </Header>
+        }
+    }
     renderEmpty = () => <Empty text="No hay ninguna sugerencias. :(" />;
     itemSeparator = () => <VerticalSeparator />;
     viewMovie = (item) => {

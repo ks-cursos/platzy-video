@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer, createBottomTabNavigator ,TouchableOpacity} from "react-navigation";
 import Home from "./screens/containers/home";
 import Movie from "./screens/containers/movie";
 import Category from "./screens/containers/category";
@@ -25,7 +25,7 @@ const AboutNav = createStackNavigator(
     },
     {
         defaultNavigationOptions: {
-            header: Header
+            header: null
         }
     }
 );

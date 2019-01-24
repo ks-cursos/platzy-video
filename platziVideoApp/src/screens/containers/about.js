@@ -4,9 +4,17 @@ import {
     Text,
     StyleSheet,
     Image,
+    StatusBar
 } from 'react-native';
 
 class About extends Component {
+    componentDidMount() {
+        this.props.navigation.addListener('didFocus', () => {
+            debugger;
+            StatusBar.setBarStyle('light-content')
+            //StatusBar.setHidden(true)
+        });
+    }
     render() {
         return (
             <View style={styles.container}>
