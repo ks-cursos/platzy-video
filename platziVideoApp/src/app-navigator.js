@@ -12,7 +12,6 @@ import Loading from "./screens/containers/loading";
 const Main = createStackNavigator(
     {
         Home,
-        Movie,
         Category
     },
     {
@@ -21,37 +20,10 @@ const Main = createStackNavigator(
         }
     }
 );
-const AboutNav = createStackNavigator(
-    {
-        About,
-    },
-    {
-        defaultNavigationOptions: {
-            header: null
-        }
-    }
-);
-const ProfileNav = createStackNavigator(
-    {
-        Profile,
-    },
-    {
-        defaultNavigationOptions: {
-            header: Header
-        }
-    }
-);
-const LoginNav = createStackNavigator(
-    {
-        Login,
-    },
-    {
-        defaultNavigationOptions: {
-            header: null
-        }
-    }
-);
+
+
 const AppContainer = createAppContainer(Main);
+
 const Tab = createBottomTabNavigator(
     {
         Home: {
@@ -62,14 +34,14 @@ const Tab = createBottomTabNavigator(
             }
         },
         About: {
-            screen: AboutNav,
+            screen: About,
             navigationOptions: {
                 title: "Acerca De",
                 tabBarIcon: <IconApp name="check" size={34} color="#990000" />
             }
         },
         Profile: {
-            screen: ProfileNav,
+            screen: Profile,
             navigationOptions: {
                 title: "Perfil",
                 tabBarIcon: <IconApp name="user" size={34} color="#990000" />
@@ -83,13 +55,31 @@ const Tab = createBottomTabNavigator(
         }
     }
 )
+const WithModal = createStackNavigator(
+    {
+        Main: {
+            screen: Tab
+        },
+        Movie
+    },
+    {
+        mode:"modal",
+        headerMode:"none",
+        defaultNavigationOptions: {
+            
+        },
+        navigationOptions:{
+            gesturesEnabled:true,
+        }
+    }
+);
 const SwitchNav = createSwitchNavigator(
     {
-        App: Tab,
-        Login: LoginNav,
+        App: WithModal,
+        Login: Login,
         Loading: Loading,
     },
     {
-        initialRouteName:'Loading'
+        initialRouteName: 'Loading'
     });
 export default SwitchNav;
