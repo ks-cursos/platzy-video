@@ -66,11 +66,7 @@ const WithModal = createStackNavigator(
     },
     {
         mode: "modal",
-        headerMode: "none",
         defaultNavigationOptions: {
-
-        },
-        navigationOptions: {
             gesturesEnabled: true,
         }
     }
@@ -80,35 +76,35 @@ const DrawwerNav = createDrawerNavigator(
     {
         Main: {
             screen: WithModal,
-            
-            navigationOptions:{
-                title:"Inicio",
-                drawerIcon:<IconApp name="check" size={34} color="#990000" />
+
+            navigationOptions: {
+                title: "Inicio",
+                drawerIcon: <IconApp name="check" size={34} color="#990000" />
             }
         },
-        SObre:{
-            screen:About
+        SObre: {
+            screen: About
         }
     },
     {
-        drawerWidth:200,
-        drawerBackgroundColor:"white",
-        contentComponent:Drawer,
-        contentOptions:{
-            activeBackgroundColor:"#c6c6c6",
-            activeTintColor:"white",
-            inactiveTintColor:"#828282",
-            inactiveBackgroundColor:"white",
-            itemStyle:{
-                borderBottomWidth:.5,
-                borderBottomColor:'rgba(0,0,0,.5)'
+        drawerWidth: 200,
+        drawerBackgroundColor: "white",
+        contentComponent: Drawer,
+        contentOptions: {
+            activeBackgroundColor: "#c6c6c6",
+            activeTintColor: "white",
+            inactiveTintColor: "#828282",
+            inactiveBackgroundColor: "white",
+            itemStyle: {
+                borderBottomWidth: .5,
+                borderBottomColor: 'rgba(0,0,0,.5)'
             },
-            labelStyle:{
-                marginHorizontal:0,
+            labelStyle: {
+                marginHorizontal: 0,
 
             },
-            iconContainerStyle:{
-                marginHorizontal:5,
+            iconContainerStyle: {
+                marginHorizontal: 5,
             }
 
         },
