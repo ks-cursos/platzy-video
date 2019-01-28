@@ -8,6 +8,7 @@ import About from "./screens/containers/about";
 import Profile from "./screens/containers/profile";
 import Login from "./screens/containers/login";
 import IconApp from "./sections/components/icon";
+import Drawer from "./sections/components/drawer";
 import Loading from "./screens/containers/loading";
 const Main = createStackNavigator(
     {
@@ -79,6 +80,7 @@ const DrawwerNav = createDrawerNavigator(
     {
         Main: {
             screen: WithModal,
+            
             navigationOptions:{
                 title:"Inicio",
                 drawerIcon:<IconApp name="check" size={34} color="#990000" />
@@ -91,6 +93,7 @@ const DrawwerNav = createDrawerNavigator(
     {
         drawerWidth:200,
         drawerBackgroundColor:"white",
+        contentComponent:Drawer,
         contentOptions:{
             activeBackgroundColor:"#c6c6c6",
             activeTintColor:"white",
@@ -108,7 +111,7 @@ const DrawwerNav = createDrawerNavigator(
                 marginHorizontal:5,
             }
 
-        }
+        },
     }
 
 )
