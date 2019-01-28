@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator, createDrawerNavigator } from "react-navigation";
 import Home from "./screens/containers/home";
 import Movie from "./screens/containers/movie";
 import Category from "./screens/containers/category";
@@ -55,6 +55,7 @@ const Tab = createBottomTabNavigator(
         }
     }
 )
+
 const WithModal = createStackNavigator(
     {
         Main: {
@@ -63,23 +64,63 @@ const WithModal = createStackNavigator(
         Movie
     },
     {
-        mode:"modal",
-        headerMode:"none",
+        mode: "modal",
+        headerMode: "none",
         defaultNavigationOptions: {
-            
+
         },
-        navigationOptions:{
-            gesturesEnabled:true,
+        navigationOptions: {
+            gesturesEnabled: true,
         }
     }
 );
+
+const DrawwerNav = createDrawerNavigator(
+    {
+        Main: {
+            screen: WithModal,
+            navigationOptions:{
+                title:"Inicio",
+                drawerIcon:<IconApp name="check" size={34} color="#990000" />
+            }
+        },
+        SObre:{
+            screen:About
+        }
+    },
+    {
+        drawerWidth:200,
+        drawerBackgroundColor:"white",
+        contentOptions:{
+            activeBackgroundColor:"#c6c6c6",
+            activeTintColor:"white",
+            inactiveTintColor:"#828282",
+            inactiveBackgroundColor:"white",
+            itemStyle:{
+                borderBottomWidth:.5,
+                borderBottomColor:'rgba(0,0,0,.5)'
+            },
+            labelStyle:{
+                marginHorizontal:0,
+
+            },
+            iconContainerStyle:{
+                marginHorizontal:5,
+            }
+
+        }
+    }
+
+)
+
 const SwitchNav = createSwitchNavigator(
     {
-        App: WithModal,
+        App: DrawwerNav,
         Login: Login,
         Loading: Loading,
     },
     {
         initialRouteName: 'Loading'
     });
-export default SwitchNav;
+
+export default DrawwerNav;
